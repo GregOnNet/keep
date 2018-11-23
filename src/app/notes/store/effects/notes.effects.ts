@@ -6,7 +6,7 @@ import { NotesActionTypes } from '../actions/notes.actions';
 export class NotesEffects {
 
   @Effect()
-  loadNotess$ = this.actions$.pipe(ofType(NotesActionTypes.LoadNotess));
+  loadNotess$ = this.actions$.pipe(ofType(NotesActionTypes.LoadNotes));
 
   constructor(private actions$: Actions) {}
 }
