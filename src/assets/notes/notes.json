@@ -1,0 +1,20 @@
+[
+  {
+    "guid": "a2748718-a79c-43c5-b8d2-6b4be6v65968",
+    "title": "Go run",
+    "text": "Get in shape for 2019",
+    "image": "/assets/images/run.jpg"
+  },
+  {
+    "guid": "a2748718-a79c-43c5-b8d2-6a4be6e65968",
+    "title": "Bake a cake",
+    "text": "Apple cake will do.",
+    "image": "/assets/images/cake.jpg"
+  },
+  {
+    "guid": "a2748718-a79c-43c5-b8d2-6b4be7e65968",
+    "title": "Plan holidays",
+    "text": "Time to Relax",
+    "image": "/assets/images/holiday.jpg"
+  }
+]
