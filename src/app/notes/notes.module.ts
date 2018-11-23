@@ -13,9 +13,10 @@ import { NoteEditComponent } from './containers/note-edit/note-edit.component';
 import { NotesListComponent } from './containers/notes-list/notes-list.component';
 import { NotesEffects } from './store/effects/notes.effects';
 import * as fromNotes from './store/reducers';
+import { NoteCardComponent } from './components/note-card/note-card.component';
 
 @NgModule({
-  declarations: [NoteQuickAddComponent, NotesListComponent, NoteEditComponent],
+  declarations: [NoteQuickAddComponent, NotesListComponent, NoteEditComponent, NoteCardComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,
