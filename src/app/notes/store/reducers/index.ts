@@ -7,7 +7,7 @@ export interface NotesContext {
   board: NotesSlice;
 }
 
-export interface NotsFeature {
+export interface NotesFeature {
   notes: NotesContext;
 }
 

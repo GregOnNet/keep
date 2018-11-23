@@ -4,7 +4,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {
   MatButtonModule,
   MatCardModule,
-  MatFormFieldModule
+  MatFormFieldModule,
+  MatInputModule
 } from '@angular/material';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
@@ -32,9 +33,10 @@ import * as fromNotes from './store/reducers';
     StoreModule.forFeature('notes', fromNotes.reducers),
     EffectsModule.forFeature([NotesEffects]),
 
+    MatButtonModule,
     MatCardModule,
     MatFormFieldModule,
-    MatButtonModule,
+    MatInputModule,
 
     NotesRoutingModule
   ]
