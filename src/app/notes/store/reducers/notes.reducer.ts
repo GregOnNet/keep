@@ -15,10 +15,10 @@ export function reducer(slice = defaults, action: NotesActions): NotesSlice {
     case NotesActionTypes.LoadNotesSuccess:
       return { ...slice, entities: action.payload };
 
-    case NotesActionTypes.CreateNote:
+    case NotesActionTypes.CreateNoteSuccess:
       return {
         ...slice,
-        entities: { ...slice.entities, [action.payload.guid]: action.payload }
+        entities: [...slice.entities, action.payload]
       };
 
     default:
