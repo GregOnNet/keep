@@ -5,7 +5,8 @@ export enum NotesActionTypes {
   LoadNotes = '[Notes] Load Notes',
   LoadNotesSuccess = '[Notes/API] Loading Notes succeeded',
   CreateNote = '[Notes] Create Note',
-  CreateNoteSuccess = '[Notes] Creating Note succeeded'
+  CreateNoteSuccess = '[Notes/API] Creating Note succeeded',
+  SetCurrentNote = '[Notes] Set current note'
 }
 
 export class LoadNotes implements Action {
@@ -30,8 +31,15 @@ export class CreateNoteSuccess implements Action {
   constructor(public payload: Note) {}
 }
 
+export class SetCurrentNote implements Action {
+  readonly type = NotesActionTypes.SetCurrentNote;
+
+  constructor(public payload: Note) {}
+}
+
 export type NotesActions =
   | LoadNotes
   | LoadNotesSuccess
   | CreateNote
-  | CreateNoteSuccess;
+  | CreateNoteSuccess
+  | SetCurrentNote;

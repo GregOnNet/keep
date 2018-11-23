@@ -4,10 +4,12 @@ import { Note } from '../../model';
 
 export interface NotesSlice {
   entities: Note[];
+  current: Note;
 }
 
 export const defaults: NotesSlice = {
-  entities: []
+  entities: [],
+  current: {} as Note
 };
 
 export function reducer(slice = defaults, action: NotesActions): NotesSlice {
@@ -19,6 +21,12 @@ export function reducer(slice = defaults, action: NotesActions): NotesSlice {
       return {
         ...slice,
         entities: [...slice.entities, action.payload]
+      };
+
+    case NotesActionTypes.SetCurrentNote:
+      return {
+        ...slice,
+        current: action.payload
       };
 
     default:

@@ -8,6 +8,10 @@
     [src]="note.image"
     alt="Notes image">
   <mat-card-actions>
-    <button mat-button>EDIT</button>
+    <button
+      [routerLink]="['note', note.guid, 'edit']"
+      mat-button>
+      EDIT
+    </button>
   </mat-card-actions>
 </mat-card>
