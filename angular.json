@@ -9,7 +9,7 @@
       "projectType": "application",
       "prefix": "app",
       "schematics": {
-        "@schematics/angular:component": {
+        "@ngrx/schematics:component": {
           "styleext": "sass"
         }
       },
@@ -135,5 +135,8 @@
       }
     }
   },
-  "defaultProject": "keep"
+  "defaultProject": "keep",
+  "cli": {
+    "defaultCollection": "@ngrx/schematics"
+  }
 }
