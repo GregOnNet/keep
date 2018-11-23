@@ -23,5 +23,5 @@ const visitNotes = createFeatureSelector<NotesContext>('notes');
 
 export const all = createSelector(
   visitNotes,
-  f => f.board.entities
+  f => Object.values(f.board.entities)
 );
