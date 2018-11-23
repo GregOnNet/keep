@@ -1,5 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
+import {
+  MatButtonModule,
+  MatCardModule,
+  MatFormFieldModule
+} from '@angular/material';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { NoteQuickAddComponent } from './components/note-quick-add/note-quick-add.component';
@@ -12,8 +18,14 @@ import * as fromNotes from './store/reducers';
   declarations: [NoteQuickAddComponent, NotesListComponent, NoteEditComponent],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
+
     StoreModule.forFeature('notes', fromNotes.reducers),
-    EffectsModule.forFeature([NotesEffects])
+    EffectsModule.forFeature([NotesEffects]),
+
+    MatCardModule,
+    MatFormFieldModule,
+    MatButtonModule
   ]
 })
 export class NotesModule {}
