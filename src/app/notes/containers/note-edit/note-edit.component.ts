@@ -16,22 +16,9 @@ import { PARAMETERS } from '@angular/core/src/util/decorators';
 export class NoteEditComponent implements OnInit {
   note$: Observable<Note>;
 
-  constructor(
-    private _route: ActivatedRoute,
-    private _store: Store<fromNotes.NotesFeature>
-  ) {}
+  constructor(private _store: Store<fromNotes.NotesFeature>) {}
 
   ngOnInit() {
-    this.note$ = this._route.paramMap.pipe(
-      switchMap(params =>
-        this._store
-          .pipe(select(f => f.notes.board.entities))
-          .pipe(map(notes => ({ notes, guid: params.get('guid') })))
-      ),
-      map(
-        ({ notes, guid }) =>
-          notes.find(note => note.guid === guid) || ({} as Note)
-      )
-    );
+    this.note$ = this._store.pipe(select(fromNotes.current));
   }
 }

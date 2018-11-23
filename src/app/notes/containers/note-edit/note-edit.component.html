@@ -1,1 +1,3 @@
-<app-note-card [note]="note$ | async"></app-note-card>
+<ng-container *ngIf="note$ | async as note">
+  <app-note-card [note]="note"></app-note-card>
+</ng-container>
