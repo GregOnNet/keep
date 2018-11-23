@@ -1,5 +1,9 @@
 import { NotesSlice } from './notes.reducer';
-import { ActionReducerMap } from '@ngrx/store';
+import {
+  ActionReducerMap,
+  createFeatureSelector,
+  createSelector
+} from '@ngrx/store';
 
 import * as fromNotes from './notes.reducer';
 
@@ -14,3 +18,10 @@ export interface NotesFeature {
 export const reducers: ActionReducerMap<NotesContext> = {
   board: fromNotes.reducer
 };
+
+const visitNotes = createFeatureSelector<NotesContext>('notes');
+
+export const all = createSelector(
+  visitNotes,
+  f => f.board.entities
+);
