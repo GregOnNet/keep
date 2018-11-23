@@ -6,7 +6,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { metaReducers, reducers } from './reducers';
+import { metaReducers, reducers } from './store/reducers';
 
 @NgModule({
   declarations: [AppComponent],
