@@ -1,11 +1,26 @@
 import { Action } from '@ngrx/store';
+import { Note } from '../../model';
 
 export enum NotesActionTypes {
-  LoadNotess = '[Notes] Load Notess'
+  LoadNotes = '[Notes] Load Notes',
+  LoadNotesSuccess = '[Notes/API] Loading Notes succeeded',
+  CreateNote = '[Notes] Create Note'
 }
 
-export class LoadNotess implements Action {
-  readonly type = NotesActionTypes.LoadNotess;
+export class LoadNotes implements Action {
+  readonly type = NotesActionTypes.LoadNotes;
 }
 
-export type NotesActions = LoadNotess;
+export class LoadNotesSuccess implements Action {
+  readonly type = NotesActionTypes.LoadNotesSuccess;
+
+  constructor(public payload: Note[]) {}
+}
+
+export class CreateNote implements Action {
+  readonly type = NotesActionTypes.CreateNote;
+
+  constructor(public payload: Note) {}
+}
+
+export type NotesActions = LoadNotes | LoadNotesSuccess | CreateNote;
