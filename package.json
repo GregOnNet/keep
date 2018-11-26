@@ -1,9 +1,19 @@
 {
-  "name": "root",
+  "name": "keep",
   "private": true,
-  "workspaces": [
-    "./packages/*œ"
-  ],
+  "workspaces": {
+    "packages": [
+      "./packages/*"
+    ],
+    "nohoist": [
+      "**/@angular/material/**"
+    ]
+  },
+  "scripts": {
+    "start": "lerna run start --stream --parallel ",
+    "start:client": "lerna run start --stream --scope '@keep/client'",
+    "start:api": "lerna run start --stream --scope '@keep/api'"
+  },
   "devDependencies": {
     "lerna": "^3.4.3"
   }
