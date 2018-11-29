@@ -1,4 +1,10 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Output,
+  ViewChild,
+  ElementRef
+} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NoteDraft } from '../../model';
 
@@ -8,6 +14,7 @@ import { NoteDraft } from '../../model';
   styleUrls: ['./note-quick-add.component.sass']
 })
 export class NoteQuickAddComponent {
+  @ViewChild('title') titleControl: ElementRef<HTMLInputElement>;
   noteForm: FormGroup;
 
   @Output() create = new EventEmitter<NoteDraft>();
@@ -23,7 +30,8 @@ export class NoteQuickAddComponent {
   emitCreate() {
     const draft: NoteDraft = {
       ...this.noteForm.value,
-      image: '/assets/images/random.jpg'
+      image: '/assets/images/random.jpg',
+      writtenAt: new Date()
     };
 
     this.noteForm.reset();
@@ -33,6 +41,7 @@ export class NoteQuickAddComponent {
 
   showForm() {
     this.isInCreationMode = true;
+    this.titleControl.nativeElement.focus();
   }
 
   hideForm() {

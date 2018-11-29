@@ -24,7 +24,10 @@ const visitNotes = createFeatureSelector<NotesContext>('notes');
 
 export const all = createSelector(
   visitNotes,
-  f => Object.values(f.board.entities)
+  f =>
+    Object.values(f.board.entities).sort((a, b) =>
+      a.writtenAt > b.writtenAt ? 1 : -1
+    )
 );
 
 export const current = createSelector(
