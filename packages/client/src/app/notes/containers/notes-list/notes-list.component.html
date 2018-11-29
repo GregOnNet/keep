@@ -1,5 +1,7 @@
 <app-note-quick-add (create)="addToCollection($event)"></app-note-quick-add>
 
-<app-note-card
+<div class="notes">
+  <app-note-card
   [note]="note"
   *ngFor="let note of notes$ | async"></app-note-card>
+</div>
