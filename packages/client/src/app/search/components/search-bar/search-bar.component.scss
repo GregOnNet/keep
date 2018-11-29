@@ -1,0 +1,20 @@
+:host {
+  display: block;
+  margin-bottom: 32px;
+
+  mat-toolbar {
+    display: flex;
+  }
+
+  input {
+    width: 600px;
+    margin-left: 32px;
+    border: none;
+    border-radius: 4px;
+    background-color: #24348c;
+    padding: 8px;
+    outline: none;
+    color: #eaeaea;
+    font-size: 14pt;
+  }
+}

@@ -11,6 +11,7 @@ export class NoteQuickAddComponent {
   noteForm: FormGroup;
 
   @Output() create = new EventEmitter<NoteDraft>();
+  isInCreationMode = false;
 
   constructor(private fb: FormBuilder) {
     this.noteForm = this.fb.group({
@@ -27,5 +28,14 @@ export class NoteQuickAddComponent {
 
     this.noteForm.reset();
     this.create.emit(draft);
+    this.hideForm();
+  }
+
+  showForm() {
+    this.isInCreationMode = true;
+  }
+
+  hideForm() {
+    this.isInCreationMode = false;
   }
 }

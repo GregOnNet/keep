@@ -17,6 +17,7 @@ import { RootComponent } from './containers/root/root.component';
 import { NotesRoutingModule } from './notes-routing.module';
 import { NotesEffects } from './store/effects/notes.effects';
 import * as fromNotes from './store/reducers';
+import { SearchModule } from '../search/search.module';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,7 @@ import * as fromNotes from './store/reducers';
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
-
+    SearchModule,
     NotesRoutingModule
   ]
 })

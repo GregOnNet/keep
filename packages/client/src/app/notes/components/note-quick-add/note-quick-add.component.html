@@ -1,6 +1,6 @@
 <mat-card>
-  <mat-card-title>Note</mat-card-title>
-  <mat-card-content>
+  <mat-card-content (click)="showForm()" class="form-trigger">Take Note...</mat-card-content>
+  <mat-card-content *ngIf="isInCreationMode">
     <form [formGroup]="noteForm">
       <mat-form-field>
         <input matInput formControlName="title" placeholder="Title">
