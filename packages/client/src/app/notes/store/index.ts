@@ -12,7 +12,7 @@ export const all = createSelector(
   visitNotes,
   f =>
     Object.values(f.board.entities).sort((a, b) =>
-      a.writtenAt > b.writtenAt ? 1 : -1
+      a.writtenAt < b.writtenAt ? 1 : -1
     )
 );
 
