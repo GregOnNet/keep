@@ -1,4 +1,4 @@
-import { EntityState, createEntityAdapter } from '@ngrx/entity';
+import { EntityState, createEntityAdapter, Update } from '@ngrx/entity';
 import { Note } from '../../model';
 import { NotesActions, NotesActionTypes } from '../actions/notes.actions';
 
@@ -17,6 +17,12 @@ export function reducer(slice = defaults, action: NotesActions): NotesSlice {
 
     case NotesActionTypes.CreateNoteSuccess:
       return adapter.addOne(action.payload, slice);
+
+    case NotesActionTypes.UpdateNoteSuccess:
+      return adapter.updateOne(
+        { changes: action.payload, id: action.payload.guid },
+        slice
+      );
 
     default:
       return slice;

@@ -1,0 +1,41 @@
+<h2 class="mat-h2">{{ note.title }}</h2>
+<form [formGroup]="editForm">
+    <mat-form-field>
+        <input
+            #title
+            matInput
+            formControlName="title"
+            placeholder="Title"
+        >
+    </mat-form-field>
+    <mat-form-field>
+        <textarea
+            matInput
+            formControlName="text"
+            placeholder="Text"
+        ></textarea>
+    </mat-form-field>
+
+    <mat-form-field>
+        <input
+            matInput
+            [matDatepicker]="picker"
+            placeholder="Choose a date"
+            formControlName="writtenAt"
+        >
+        <mat-datepicker-toggle
+            matSuffix
+            [for]="picker"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <button
+        [disabled]="editForm.invalid"
+        (click)="emitUpdate()"
+        mat-raised-button
+        type="button"
+    >
+        Update
+    </button>
+</form>

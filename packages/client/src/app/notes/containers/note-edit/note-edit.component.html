@@ -1,3 +1,6 @@
 <ng-container *ngIf="note$ | async as note">
-  <app-note-card [note]="note"></app-note-card>
+    <app-note-quick-edit
+        [note]="note"
+        (update)="dispatchUpdate($event)"
+    ></app-note-quick-edit>
 </ng-container>

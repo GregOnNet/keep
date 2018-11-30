@@ -22,12 +22,12 @@ export class NotesService {
   }
 
   create(note: Note) {
-    this._db.push(`/${note.id}`, note, false);
+    this._db.push(`/${note.guid}`, note, false);
     return note;
   }
 
   update(id: string, updates: Partial<Note>): Note {
-    const note = this.read(updates.id);
+    const note = this.read(updates.guid);
     const updated = { ...note, ...updates };
     this._db.push(`/${id}`, updated, true);
 

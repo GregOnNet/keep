@@ -19,4 +19,7 @@ export class NotesService {
     const note = { guid: newGuid(), ...draft };
     return this._http.post<Note>(`${this._endpoint}/notes`, note);
   }
+  update(note: Note): Observable<Note> {
+    return this._http.put<Note>(`${this._endpoint}/notes/${note.guid}`, note);
+  }
 }

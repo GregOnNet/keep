@@ -6,7 +6,9 @@ import {
   CreateNote,
   CreateNoteSuccess,
   LoadNotesSuccess,
-  NotesActionTypes
+  NotesActionTypes,
+  UpdateNote,
+  UpdateNoteSuccess
 } from '../actions/notes.actions';
 
 @Injectable()
@@ -23,6 +25,13 @@ export class NotesEffects {
     ofType<CreateNote>(NotesActionTypes.CreateNote),
     switchMap(({ payload: draft }) => this._notes.create(draft)),
     map(note => new CreateNoteSuccess(note))
+  );
+
+  @Effect()
+  updateNote$ = this.actions$.pipe(
+    ofType<UpdateNote>(NotesActionTypes.UpdateNote),
+    switchMap(({ payload: note }) => this._notes.update(note)),
+    map(note => new UpdateNoteSuccess(note))
   );
 
   constructor(private actions$: Actions, private _notes: NotesService) {}

@@ -5,7 +5,9 @@ import {
   MatButtonModule,
   MatCardModule,
   MatFormFieldModule,
-  MatInputModule
+  MatInputModule,
+  MatDatepickerModule,
+  MatNativeDateModule
 } from '@angular/material';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
@@ -18,6 +20,7 @@ import { NotesRoutingModule } from './notes-routing.module';
 import { NotesEffects } from './store/effects/notes.effects';
 import * as fromNotes from './store/reducers';
 import { SearchModule } from '../search/search.module';
+import { NoteQuickEditComponent } from './components/note-quick-edit/note-quick-edit.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +28,8 @@ import { SearchModule } from '../search/search.module';
     NotesListComponent,
     NoteEditComponent,
     NoteCardComponent,
-    RootComponent
+    RootComponent,
+    NoteQuickEditComponent
   ],
   imports: [
     CommonModule,
@@ -38,6 +42,8 @@ import { SearchModule } from '../search/search.module';
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     SearchModule,
     NotesRoutingModule
   ]

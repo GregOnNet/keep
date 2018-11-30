@@ -1,12 +1,14 @@
 import { Action } from '@ngrx/store';
 import { Note, NoteDraft } from '../../model';
+import { UpdateNum } from '@ngrx/entity/src/models';
 
 export enum NotesActionTypes {
   LoadNotes = '[Notes] Load Notes',
   LoadNotesSuccess = '[Notes/API] Loading Notes succeeded',
   CreateNote = '[Notes] Create Note',
   CreateNoteSuccess = '[Notes/API] Creating Note succeeded',
-  SetCurrentNote = '[Notes] Set current note'
+  UpdateNote = '[Notes] Updating Note',
+  UpdateNoteSuccess = '[Notes/API] Updating Note succeeded'
 }
 
 export class LoadNotes implements Action {
@@ -30,9 +32,13 @@ export class CreateNoteSuccess implements Action {
 
   constructor(public payload: Note) {}
 }
+export class UpdateNote implements Action {
+  readonly type = NotesActionTypes.UpdateNote;
 
-export class SetCurrentNote implements Action {
-  readonly type = NotesActionTypes.SetCurrentNote;
+  constructor(public payload: Note) {}
+}
+export class UpdateNoteSuccess implements Action {
+  readonly type = NotesActionTypes.UpdateNoteSuccess;
 
   constructor(public payload: Note) {}
 }
@@ -42,4 +48,5 @@ export type NotesActions =
   | LoadNotesSuccess
   | CreateNote
   | CreateNoteSuccess
-  | SetCurrentNote;
+  | UpdateNote
+  | UpdateNoteSuccess;

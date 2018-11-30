@@ -1,7 +1,7 @@
 import { Todo } from './todo';
 
 export interface Note {
-  id: string;
+  guid: string;
   title: string;
   text: string;
   imageUrl: string;
