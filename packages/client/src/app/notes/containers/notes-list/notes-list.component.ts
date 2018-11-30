@@ -19,7 +19,7 @@ export class NotesListComponent {
   ) {
     this.notes$ = this._store.pipe(
       select(s =>
-        s.notes.board.entities.filter(
+        Object.values(s.notes.board.entities).filter(
           note =>
             new RegExp(s.search.query, 'i').test(note.title) ||
             new RegExp(s.search.query, 'i').test(note.text)

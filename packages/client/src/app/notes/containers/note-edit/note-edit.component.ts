@@ -17,7 +17,7 @@ export class NoteEditComponent implements OnInit {
   ngOnInit() {
     this.note$ = this._store.pipe(
       select(s =>
-        s.notes.board.entities.find(
+        Object.values(s.notes.board.entities).find(
           note => note.guid === s.router.state.params.guid
         )
       )

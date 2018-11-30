@@ -1,44 +1,26 @@
 import { Note } from '../../model';
 import { NotesActions, NotesActionTypes } from '../actions/notes.actions';
 import { ActionHandlers, createReducer } from '../../../lib';
+import { EntityState, createEntityAdapter } from '@ngrx/entity';
 
-export interface NotesSlice {
-  entities: Note[];
-}
+export interface NotesSlice extends EntityState<Note> {}
 
-const defaults: NotesSlice = {
-  entities: []
-};
+const adapter = createEntityAdapter<Note>({
+  selectId: note => note.guid
+});
+
+const defaults = adapter.getInitialState();
 
 const handlers: ActionHandlers<NotesSlice> = {
-  [NotesActionTypes.LoadNotesSuccess]: setNotes,
+  [NotesActionTypes.LoadNotesSuccess]: adapter.addAll,
   [NotesActionTypes.UpdateNoteSuccess]: updateNote,
-  [NotesActionTypes.CreateNoteSuccess]: createNote
+  [NotesActionTypes.CreateNoteSuccess]: adapter.addOne
 };
 
 export function reducer(slice = defaults, action: NotesActions): NotesSlice {
   return createReducer(handlers)(slice, action);
 }
 
-function setNotes(notes: Note[], slice: NotesSlice): NotesSlice {
-  return {
-    ...slice,
-    entities: notes
-  };
-}
-
-function createNote(note: Note, slice: NotesSlice): NotesSlice {
-  return {
-    ...slice,
-    entities: [...slice.entities, note]
-  };
-}
-
-function updateNote(updates: Note, slice: NotesSlice): NotesSlice {
-  return {
-    ...slice,
-    entities: slice.entities.map(note =>
-      note.guid === updates.guid ? updates : note
-    )
-  };
+function updateNote(note: Note, slice: NotesSlice): NotesSlice {
+  return adapter.updateOne({ changes: note, id: note.guid }, slice);
 }
