@@ -14,7 +14,7 @@ export class NotesListComponent {
   notes$: Observable<Note[]>;
 
   constructor(private _store: Store<fromNotes.NotesFeature>) {
-    this.notes$ = this._store.pipe(select(fromNotes.filtered));
+    this.notes$ = this._store.pipe(select(s => s.notes.board.entities));
   }
 
   addToCollection(draft: NoteDraft) {

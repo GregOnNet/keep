@@ -1,28 +1,35 @@
-import { EntityState, createEntityAdapter, Update } from '@ngrx/entity';
 import { Note } from '../../model';
 import { NotesActions, NotesActionTypes } from '../actions/notes.actions';
 
-export interface NotesSlice extends EntityState<Note> {}
+export interface NotesSlice {
+  entities: Note[];
+}
 
-const adapter = createEntityAdapter<Note>({
-  selectId: note => note.guid
-});
-
-const defaults: NotesSlice = adapter.getInitialState();
+const defaults: NotesSlice = {
+  entities: []
+};
 
 export function reducer(slice = defaults, action: NotesActions): NotesSlice {
   switch (action.type) {
     case NotesActionTypes.LoadNotesSuccess:
-      return adapter.addAll(action.payload, slice);
+      return {
+        ...slice,
+        entities: action.payload
+      };
 
     case NotesActionTypes.CreateNoteSuccess:
-      return adapter.addOne(action.payload, slice);
+      return {
+        ...slice,
+        entities: [...slice.entities, action.payload]
+      };
 
     case NotesActionTypes.UpdateNoteSuccess:
-      return adapter.updateOne(
-        { changes: action.payload, id: action.payload.guid },
-        slice
-      );
+      return {
+        ...slice,
+        entities: slice.entities.map(note =>
+          note.guid === action.payload.guid ? action.payload : note
+        )
+      };
 
     default:
       return slice;

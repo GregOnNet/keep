@@ -15,7 +15,13 @@ export class NoteEditComponent implements OnInit {
   constructor(private _store: Store<fromNotes.NotesFeature>) {}
 
   ngOnInit() {
-    this.note$ = this._store.pipe(select(fromNotes.current));
+    this.note$ = this._store.pipe(
+      select(s =>
+        s.notes.board.entities.find(
+          note => note.guid === s.router.state.params.guid
+        )
+      )
+    );
   }
 
   dispatchUpdate(note: Note) {

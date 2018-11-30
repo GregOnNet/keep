@@ -6,13 +6,13 @@ import {
 } from '@ngrx/store';
 
 import * as fromNotes from './notes.reducer';
-import * as fromRoot from '../../../store/reducers';
+import * as fromRoot from '@root/reducers';
 
 export interface NotesContext {
   board: NotesSlice;
 }
 
-export interface NotesFeature {
+export interface NotesFeature extends fromRoot.State {
   notes: NotesContext;
 }
 
