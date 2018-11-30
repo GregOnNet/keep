@@ -1,12 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Store, select } from '@ngrx/store';
-import * as fromNotes from '../../store/reducers';
-import { switchMap, map } from 'rxjs/operators';
-import { Note } from '../../model';
+import { select, Store } from '@ngrx/store';
+import * as fromNotes from '@notes';
 import { Observable } from 'rxjs';
-import { SetCurrentNote } from '../../store/actions/notes.actions';
-import { PARAMETERS } from '@angular/core/src/util/decorators';
+import { Note } from '../../model';
 
 @Component({
   selector: 'app-note-edit',

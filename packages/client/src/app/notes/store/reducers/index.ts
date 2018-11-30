@@ -19,19 +19,3 @@ export interface NotesFeature {
 export const reducers: ActionReducerMap<NotesContext> = {
   board: fromNotes.reducer
 };
-
-const visitNotes = createFeatureSelector<NotesContext>('notes');
-
-export const all = createSelector(
-  visitNotes,
-  f =>
-    Object.values(f.board.entities).sort((a, b) =>
-      a.writtenAt > b.writtenAt ? 1 : -1
-    )
-);
-
-export const current = createSelector(
-  visitNotes,
-  fromRoot.activatedRoute,
-  (notes, route) => notes.board.entities[route.params.guid]
-);

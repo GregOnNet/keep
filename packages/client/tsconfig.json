@@ -16,6 +16,11 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "@root/*": ["./src/app/store/*"],
+      "@notes": ["./src/app/notes/store/index"],
+      "@search": ["./src/app/search/store/index"]
+    }
   }
 }
