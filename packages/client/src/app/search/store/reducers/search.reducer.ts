@@ -1,4 +1,3 @@
-import { Action } from '@ngrx/store';
 import { SearchActions, SearchActionTypes } from '../actions/search.actions';
 
 export interface State {
