@@ -18,7 +18,7 @@ export class NotesService {
     return this._db.find<Note>(`/`, note => note.id === id);
   }
   readAll(): Note[] {
-    return Object.values(this._db.getData('/'));
+    return Object.values(this._db.getData('/')) || [];
   }
 
   create(note: Note) {

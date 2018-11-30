@@ -9,9 +9,8 @@ import {
 } from '@nestjs/common';
 import { NotesService } from './notes.service';
 import { Note } from './models';
-import { identity } from 'rxjs';
 
-@Controller()
+@Controller('notes')
 export class NotesController {
   constructor(private readonly _notes: NotesService) {}
 
