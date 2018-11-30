@@ -30,7 +30,7 @@ export class NoteQuickAddComponent {
   emitCreate() {
     const draft: NoteDraft = {
       ...this.noteForm.value,
-      image: '/assets/images/random.jpg',
+      image: '/assets/images/salad.jpg',
       writtenAt: new Date()
     };
 
