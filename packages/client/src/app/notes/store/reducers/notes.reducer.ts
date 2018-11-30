@@ -1,5 +1,6 @@
 import { Note } from '../../model';
 import { NotesActions, NotesActionTypes } from '../actions/notes.actions';
+import { ActionHandlers, createReducer } from '../../../lib';
 
 export interface NotesSlice {
   entities: Note[];
@@ -9,20 +10,14 @@ const defaults: NotesSlice = {
   entities: []
 };
 
+const handlers: ActionHandlers<NotesSlice> = {
+  [NotesActionTypes.LoadNotesSuccess]: setNotes,
+  [NotesActionTypes.UpdateNoteSuccess]: updateNote,
+  [NotesActionTypes.CreateNoteSuccess]: createNote
+};
+
 export function reducer(slice = defaults, action: NotesActions): NotesSlice {
-  switch (action.type) {
-    case NotesActionTypes.LoadNotesSuccess:
-      return setNotes(action.payload, slice);
-
-    case NotesActionTypes.CreateNoteSuccess:
-      return createNote(action.payload, slice);
-
-    case NotesActionTypes.UpdateNoteSuccess:
-      return updateNote(action.payload, slice);
-
-    default:
-      return slice;
-  }
+  return createReducer(handlers)(slice, action);
 }
 
 function setNotes(notes: Note[], slice: NotesSlice): NotesSlice {
