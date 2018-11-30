@@ -1,10 +1,9 @@
-import { Component } from '@angular/core';
-import { select, Store } from '@ngrx/store';
+import { Component, Inject } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Note, NoteDraft } from '../../model';
-import { CreateNote } from '../../store/actions/notes.actions';
 import * as fromNotes from '@notes';
-import * as fromSearch from '@search';
+import { NoteDucks } from '../../store/reducers/notes.ducks';
+import { Ducks } from '@co-it/ngrx-ducks';
 
 @Component({
   selector: 'app-notes-list',
@@ -14,13 +13,11 @@ import * as fromSearch from '@search';
 export class NotesListComponent {
   notes$: Observable<Note[]>;
 
-  constructor(
-    private _store: Store<fromNotes.NotesFeature & fromSearch.SearchFeature>
-  ) {
-    this.notes$ = this._store.pipe(select(fromNotes.filtered));
+  constructor(@Inject(NoteDucks) private _ducks: Ducks<NoteDucks>) {
+    this.notes$ = this._ducks.pick(fromNotes.filtered);
   }
 
   addToCollection(draft: NoteDraft) {
-    this._store.dispatch(new CreateNote(draft));
+    this._ducks.createNote.dispatch(draft);
   }
 }

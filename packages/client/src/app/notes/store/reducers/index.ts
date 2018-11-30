@@ -1,21 +1,15 @@
-import { NotesSlice } from './notes.reducer';
-import {
-  ActionReducerMap,
-  createFeatureSelector,
-  createSelector
-} from '@ngrx/store';
-
-import * as fromNotes from './notes.reducer';
 import * as fromRoot from '@root/reducers';
+import * as fromNotes from './notes.ducks';
+
 
 export interface NotesContext {
-  board: NotesSlice;
+  board: fromNotes.NotesSlice;
 }
 
 export interface NotesFeature extends fromRoot.State {
   notes: NotesContext;
 }
 
-export const reducers: ActionReducerMap<NotesContext> = {
+export const reducers = {
   board: fromNotes.reducer
 };

@@ -10,7 +10,7 @@ import {
   MatNativeDateModule
 } from '@angular/material';
 import { EffectsModule } from '@ngrx/effects';
-import { StoreModule } from '@ngrx/store';
+import { StoreModule, Store } from '@ngrx/store';
 import { NoteCardComponent } from './components/note-card/note-card.component';
 import { NoteQuickAddComponent } from './components/note-quick-add/note-quick-add.component';
 import { NoteEditComponent } from './containers/note-edit/note-edit.component';
@@ -21,6 +21,8 @@ import { NotesEffects } from './store/effects/notes.effects';
 import * as fromNotes from './store/reducers';
 import { SearchModule } from '../search/search.module';
 import { NoteQuickEditComponent } from './components/note-quick-edit/note-quick-edit.component';
+import { NoteDucks, wiredActions } from './store/reducers/notes.ducks';
+import { createDucks } from '@co-it/ngrx-ducks';
 
 @NgModule({
   declarations: [
@@ -46,6 +48,15 @@ import { NoteQuickEditComponent } from './components/note-quick-edit/note-quick-
     MatNativeDateModule,
     SearchModule,
     NotesRoutingModule
+  ],
+  providers: [
+    {
+      provide: NoteDucks,
+      useFactory(store) {
+        return createDucks(wiredActions, store);
+      },
+      deps: [Store]
+    }
   ]
 })
 export class NotesModule {}

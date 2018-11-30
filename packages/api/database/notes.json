@@ -1,23 +1,37 @@
 {
-  "a2748718-a79c-43c5-b8d2-6b4be6v65968": {
-    "guid": "a2748718-a79c-43c5-b8d2-6b4be6v65968",
-    "title": "Apple pie",
-    "text": "Enjoy warm",
-    "image": "/assets/images/apple-pie.jpg",
-    "writtenAt": "2018-11-28T16:42:04.979Z"
-  },
-  "a2748718-a79c-cxc5-b8d2-6a4be6e65968": {
-    "guid": "a2748718-a79c-cxc5-b8d2-6a4be6e65968",
-    "title": "Tiramisu",
-    "text": "Uli's favorite",
-    "image": "/assets/images/tiramisu.jpg",
-    "writtenAt": "2018-11-28T15:42:04.979Z"
-  },
-  "a2748718-a79c-43125-b8d2-6b4be7e65968": {
-    "guid": "a2748718-a79c-43125-b8d2-6b4be7e65968",
-    "title": "Pizza",
-    "text": "Freshly baked",
-    "image": "/assets/images/pizza.jpg",
-    "writtenAt": "2018-11-28T15:52:04.979Z"
-  }
+    "a2748718-a79c-43c5-b8d2-6b4be6v65968": {
+        "guid": "a2748718-a79c-43c5-b8d2-6b4be6v65968",
+        "title": "Apple pie",
+        "text": "Enjoy warm",
+        "image": "/assets/images/apple-pie.jpg",
+        "writtenAt": "2018-11-28T16:42:04.979Z"
+    },
+    "a2748718-a79c-cxc5-b8d2-6a4be6e65968": {
+        "guid": "a2748718-a79c-cxc5-b8d2-6a4be6e65968",
+        "title": "Tiramisu 2",
+        "text": "Uli's favorite",
+        "image": "/assets/images/tiramisu.jpg",
+        "writtenAt": "2018-11-28T15:42:04.979Z"
+    },
+    "a2748718-a79c-43125-b8d2-6b4be7e65968": {
+        "guid": "a2748718-a79c-43125-b8d2-6b4be7e65968",
+        "title": "Pizza II",
+        "text": "Freshly baked",
+        "image": "/assets/images/pizza.jpg",
+        "writtenAt": "2018-11-28T15:52:04.979Z"
+    },
+    "7bcb1b57-9761-4896-b720-e5a03e3a9578": {
+        "guid": "7bcb1b57-9761-4896-b720-e5a03e3a9578",
+        "title": "123123",
+        "text": "21313",
+        "image": "/assets/images/salad.jpg",
+        "writtenAt": "2018-11-30T14:03:26.574Z"
+    },
+    "88b971e2-b202-4af2-979f-20e8547b1f7f": {
+        "guid": "88b971e2-b202-4af2-979f-20e8547b1f7f",
+        "title": "weqe",
+        "text": "eqweqweq",
+        "image": "/assets/images/salad.jpg",
+        "writtenAt": "2018-11-30T16:10:01.218Z"
+    }
 }

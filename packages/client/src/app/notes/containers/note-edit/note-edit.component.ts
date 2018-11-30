@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { select, Store } from '@ngrx/store';
+import { Component, Inject, OnInit } from '@angular/core';
+import { Ducks } from '@co-it/ngrx-ducks';
 import * as fromNotes from '@notes';
 import { Observable } from 'rxjs';
 import { Note } from '../../model';
-import { UpdateNote } from '../../store/actions/notes.actions';
+import { NoteDucks } from '../../store/reducers/notes.ducks';
 
 @Component({
   selector: 'app-note-edit',
@@ -12,13 +12,13 @@ import { UpdateNote } from '../../store/actions/notes.actions';
 })
 export class NoteEditComponent implements OnInit {
   note$: Observable<Note>;
-  constructor(private _store: Store<fromNotes.NotesFeature>) {}
+  constructor(@Inject(NoteDucks) private _ducks: Ducks<NoteDucks>) {}
 
   ngOnInit() {
-    this.note$ = this._store.pipe(select(fromNotes.current));
+    this.note$ = this._ducks.pick(fromNotes.current);
   }
 
   dispatchUpdate(note: Note) {
-    this._store.dispatch(new UpdateNote(note));
+    this._ducks.updateNote.dispatch(note);
   }
 }
