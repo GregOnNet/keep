@@ -17,15 +17,7 @@ export class NotesListComponent {
   constructor(
     private _store: Store<fromNotes.NotesFeature & fromSearch.SearchFeature>
   ) {
-    this.notes$ = this._store.pipe(
-      select(s =>
-        Object.values(s.notes.board.entities).filter(
-          note =>
-            new RegExp(s.search.query, 'i').test(note.title) ||
-            new RegExp(s.search.query, 'i').test(note.text)
-        )
-      )
-    );
+    this.notes$ = this._store.pipe(select(fromNotes.filtered));
   }
 
   addToCollection(draft: NoteDraft) {

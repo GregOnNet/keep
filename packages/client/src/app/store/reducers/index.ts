@@ -25,6 +25,7 @@ export const metaReducers: MetaReducer<State>[] = !environment.production
 const visitRouter = createFeatureSelector<
   fromRouter.RouterReducerState<RouterStateUrl>
 >('router');
+
 export const activatedRoute = createSelector(
   visitRouter,
   router => router.state
