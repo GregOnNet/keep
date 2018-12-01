@@ -1,27 +1,67 @@
 # Keep
+> Demo of the talk [NgRx Refactoring Patterns]()
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.6.
+## Features
 
-## Development server
+- [Lerna](https://lernajs.io/) is used to setup the Mono Repository  
+- [Angular](https://angular.io) Client
+- [NestJS](https://nestjs.com) API
+- [NgRx](https://ngrx.io) handles state
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Setup
 
-## Code scaffolding
+In this project yarn is used instead of npm.
+To install packages and run commands you will see the yarn commands.
+Of cause you are free to use npm instead of yarn.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+The Angular Client runs at https://localhost:4200 and communicates with
+the API at https://localhost:3000.
 
-## Build
+```bash
+# Install dependencies
+yarn
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+# Start Client & API
+yarn start 
+```
 
-## Running unit tests
+## Go through NgRx refactoring techniques
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Please switch to the branch `refactoring-patterns` to get started.
+This branch contains the code base we want to refactor.
+All the code of the Angular client is located in `packages/client/src/app/`.
 
-## Running end-to-end tests
+```bash
+git checkout refactoring-patterns
+```
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
-## Further help
+### Extract Case Reducer
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+```bash
+git checkout step-1
+```
+
+### Reduce infrastructural code | createReducer
+
+```bash
+git checkout step-2
+```
+
+### Systematize mutation operations | @ngrx/entity
+
+```bash
+git checkout step-3
+```
+
+### Isolate Store structure | selectors
+
+```bash
+git checkout step-4
+```
+
+### Automate communication infrastructure | ngrx-ducks
+
+```bash
+git checkout step-5
+```
