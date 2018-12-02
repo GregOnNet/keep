@@ -27,14 +27,9 @@ yarn start
 
 ## Go through NgRx refactoring techniques
 
-Please switch to the branch `refactoring-patterns` to get started.
-This branch contains the code base we want to refactor.
 All the code of the Angular client is located in `packages/client/src/app/`.
-
-```bash
-git checkout refactoring-patterns
-```
-
+You can check out certain tags (step-1 to step-5) to learn about certain
+refactoring techniques.
 
 ### Extract Case Reducer
 
