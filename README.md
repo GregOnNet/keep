@@ -1,9 +1,10 @@
 # Keep
-> Demo of the talk [NgRx Refactoring Patterns]()
+
+> Demo of the talk [NgRx Refactoring Patterns](https://speakerdeck.com/gregonnet/ngrx-refactoring-patterns)
 
 ## Features
 
-- [Lerna](https://lernajs.io/) is used to setup the Mono Repository  
+- [Lerna](https://lernajs.io/) is used to setup the Mono Repository
 - [Angular](https://angular.io) Client
 - [NestJS](https://nestjs.com) API
 - [NgRx](https://ngrx.io) handles state
@@ -22,7 +23,7 @@ the API at https://localhost:3000.
 yarn
 
 # Start Client & API
-yarn start 
+yarn start
 ```
 
 ## Go through NgRx refactoring techniques
