@@ -1,9 +1,6 @@
-import { Component, OnInit, Inject } from '@angular/core';
-import { Store } from '@ngrx/store';
-import { LoadNotes } from '../../store/actions/notes.actions';
-import * as fromNotes from '../../store/reducers';
+import { Component, Inject, OnInit } from '@angular/core';
+import { Duck } from '@co-it/ngrx-ducks';
 import { NoteDucks } from '../../store/reducers/notes.ducks';
-import { Ducks } from '@co-it/ngrx-ducks';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +8,7 @@ import { Ducks } from '@co-it/ngrx-ducks';
   styleUrls: ['./root.component.sass']
 })
 export class RootComponent implements OnInit {
-  constructor(@Inject(NoteDucks) private _ducks: Ducks<NoteDucks>) {}
+  constructor(@Inject(NoteDucks) private _ducks: Duck<NoteDucks>) {}
 
   ngOnInit() {
     this._ducks.loadAll.dispatch();

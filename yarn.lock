@@ -306,10 +306,10 @@
     lodash "^4.17.10"
     to-fast-properties "^2.0.0"
 
-"@co-it/ngrx-ducks@^7.0.1-alpha.1":
-  version "7.0.1-alpha.1"
-  resolved "https://registry.yarnpkg.com/@co-it/ngrx-ducks/-/ngrx-ducks-7.0.1-alpha.1.tgz#4366e1eab42dd9091e09432eda9c16fbf6b8b2aa"
-  integrity sha512-hM3EYVRRf8zmzX8cZlrFnbrt9Tdd2dsgcpocDPCnfHRA/iLA0CSDs4VoQRSBz5TFDPtysArQrw2mGOEHa4woIg==
+"@co-it/ngrx-ducks@^7.5.1":
+  version "7.5.1"
+  resolved "https://registry.yarnpkg.com/@co-it/ngrx-ducks/-/ngrx-ducks-7.5.1.tgz#0dadbc063c3f41cd2eefe5319bcd7adff1a5c422"
+  integrity sha512-gTlhVPKRjOKLynXzCclFV+tsETG4z3szVvi1Gh/xY6EaWZsqMehn1toEC/k5t0B40BZvC4nZJJFFuOcV/lDxEQ==
   dependencies:
     tslib "^1.9.0"
 
